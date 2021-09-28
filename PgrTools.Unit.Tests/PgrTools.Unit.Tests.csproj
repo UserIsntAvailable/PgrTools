@@ -2,15 +2,10 @@
 
     <PropertyGroup>
         <TargetFrameworks>net5.0;net461</TargetFrameworks>
-
         <IsPackable>false</IsPackable>
-
         <LangVersion>9</LangVersion>
-
         <SignAssembly>true</SignAssembly>
-
         <AssemblyOriginatorKeyFile>Key.snk</AssemblyOriginatorKeyFile>
-
         <PublicSign>true</PublicSign>
     </PropertyGroup>
 
@@ -31,6 +26,12 @@
 
     <ItemGroup>
       <ProjectReference Include="..\PgrTools\PgrTools.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Update="Resources\playerprefs.sample.xml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
     </ItemGroup>
 
 </Project>
