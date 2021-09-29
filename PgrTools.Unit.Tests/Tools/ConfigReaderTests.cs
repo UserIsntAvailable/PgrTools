@@ -5,16 +5,14 @@ using Xunit;
 
 namespace PgrTools.Unit.Tests.Tools
 {
-    public class ConfigReaderTests
+    public class ConfigReaderTests : BaseTest
     {
-        private const string TEST_FILE_PATH = "Resources/playerprefs.sample.xml";
-
         private readonly IConfigReader _sut = new ConfigReader(_ => _);
 
         [Fact]
         public void ReadXmlConfig_ShouldReturnDictionary_WhenPathExists()
         {
-            var dict = _sut.ReadXmlConfig(TEST_FILE_PATH);
+            var dict = _sut.ReadXmlConfig(TestFilePath);
 
             dict.Should().ContainKeys("PlayerKeyMapping", "CustomUI");
         }
@@ -22,7 +20,7 @@ namespace PgrTools.Unit.Tests.Tools
         [Fact]
         public void ReadXmlConfig_ShouldNotConvertHex_WhenConvertToAsciiIsFalse()
         {
-            var dict = _sut.ReadXmlConfig(TEST_FILE_PATH, false);
+            var dict = _sut.ReadXmlConfig(TestFilePath, false);
 
             dict.Values.First()!.Should().Contain("%");
         }
