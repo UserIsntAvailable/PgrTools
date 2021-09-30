@@ -7,7 +7,7 @@ namespace PgrTools.Unit.Tests.Tools
 {
     public class ConfigReaderTests : BaseTest
     {
-        private readonly IConfigReader _sut = new ConfigReader(_ => _);
+        private readonly IConfigReader _sut = new ConfigReader();
 
         [Fact]
         public void ReadXmlConfig_ShouldReturnDictionary_WhenPathExists()

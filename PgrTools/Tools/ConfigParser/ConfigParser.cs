@@ -21,10 +21,10 @@ namespace PgrTools.Tools
 
         /// <inheritdoc/>
         /// <remarks>If <see cref="value"/> has hex values (%XX),
-        /// the method will convert them automatically.</remarks> 
+        /// the method will convert them automatically to ASCII.</remarks> 
         public IDictionary<KeyMappingKey, string> ParsePlayerKeyMapping(string value)
         {
-            if(IsHexString(value)) value = _hexToStr(value);
+            if(HasHexString(value)) value = _hexToStr(value);
 
             var pairs = value.Split(new[] {'|',}, StringSplitOptions.RemoveEmptyEntries);
 
@@ -41,7 +41,7 @@ namespace PgrTools.Tools
 
             return returned;
 
-            static bool IsHexString(string s) => s.Contains("%");
+            static bool HasHexString(string s) => s.Contains("%");
         }
     }
 }
