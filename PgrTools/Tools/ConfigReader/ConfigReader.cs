@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Xml.Linq;
@@ -12,8 +11,8 @@ namespace PgrTools.Tools
         private readonly Delegates.HexToString _hexToStr;
 
         public ConfigReader()
+            : this(StringUtils.UrlHexToStr)
         {
-            _hexToStr = StringUtils.UrlHexToStr;
         }
 
         internal ConfigReader(Delegates.HexToString hexToStr)
@@ -37,17 +36,7 @@ namespace PgrTools.Tools
 
                     return key;
                 },
-                e =>
-                {
-                    var value = e.Value;
-
-                    if(convertHexToAscii)
-                    {
-                        value = _hexToStr(value);
-                    }
-
-                    return value;
-                }
+                e => convertHexToAscii ? _hexToStr(e.Value) : e.Value
             );
         }
     }

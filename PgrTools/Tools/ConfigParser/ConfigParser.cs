@@ -12,8 +12,8 @@ namespace PgrTools.Tools
         private readonly Delegates.HexToString _hexToStr;
 
         public ConfigParser()
+            : this(StringUtils.UrlHexToStr)
         {
-            _hexToStr = StringUtils.UrlHexToStr;
         }
 
         internal ConfigParser(Delegates.HexToString hexToStr)
