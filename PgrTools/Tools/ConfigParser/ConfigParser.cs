@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text.Json;
 using PgrTools.Internals;
 
 // ReSharper disable once CheckNamespace
@@ -20,11 +22,11 @@ namespace PgrTools.Tools
         }
 
         /// <inheritdoc/>
-        /// <remarks>If <see cref="value"/> has hex values (%XX),
+        /// <remarks>If <see cref="value"/> has any hex values (%XX),
         /// the method will convert them automatically to ASCII.</remarks> 
         public IDictionary<KeyMappingKey, string> ParsePlayerKeyMapping(string value)
         {
-            if(HasHexString(value)) value = _hexToStr(value);
+            if(HasHex(value)) value = _hexToStr(value);
 
             var pairs = value.Split(new[] {'|',}, StringSplitOptions.RemoveEmptyEntries);
 
@@ -40,8 +42,27 @@ namespace PgrTools.Tools
             }
 
             return returned;
-
-            static bool HasHexString(string s) => s.Contains("%");
         }
+
+        /// <inheritdoc/>
+        /// <remarks>If <see cref="value"/> has any hex values (%XX),
+        /// the method will convert them automatically to ASCII.</remarks> 
+        public IDictionary<CustomUiElement, UiElementInfo> ParseCustomUi(string value)
+        {
+            if(HasHex(value)) value = _hexToStr(value);
+
+            using var jsonDoc = JsonDocument.Parse(value);
+
+            return jsonDoc.RootElement.GetProperty("UiData").EnumerateObject().ToDictionary(
+                p => (CustomUiElement) Enum.Parse(typeof(CustomUiElement), p.Name),
+                p => new UiElementInfo(
+                    Math.Round(p.Value.GetProperty("PositionX").GetDouble(), 4),
+                    Math.Round(p.Value.GetProperty("PositionY").GetDouble(), 4),
+                    Math.Round(p.Value.GetProperty("Scale").GetDouble(), 4)
+                )
+            );
+        }
+
+        private static bool HasHex(string s) => s.Contains("%");
     }
 }

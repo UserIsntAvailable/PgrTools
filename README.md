@@ -8,3 +8,4 @@ Tools for Punishing: Gray Raven.
 
 #### Parsable Config Keys
 * **PlayerKeyMapping**
+* **CustomUI**
