@@ -32,11 +32,11 @@ namespace PgrTools.Unit.Tests.Tools
 
             var dict = _sut.ParseCustomUi(testValue);
 
-            var keysCount = Enum.GetNames(typeof(CustomUiElement)).Length;
+            var keysCount = Enum.GetNames(typeof(CustomUiComponent)).Length;
 
             dict.Should().HaveCount(keysCount)
-                .And.ContainKey(CustomUiElement.JoyStick)
-                .WhoseValue.Should().Be(new UiElementInfo(125.9527, 130.9318, 0.6998));
+                .And.ContainKey(CustomUiComponent.JoyStick)
+                .WhoseValue.Should().Be(new CustomComponentData(125.9527, 130.9318, 0.6998));
         }
     }
 }

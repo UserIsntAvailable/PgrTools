@@ -47,15 +47,15 @@ namespace PgrTools.Tools
         /// <inheritdoc/>
         /// <remarks>If <see cref="value"/> has any hex values (%XX),
         /// the method will convert them automatically to ASCII.</remarks> 
-        public IDictionary<CustomUiElement, UiElementInfo> ParseCustomUi(string value)
+        public IDictionary<CustomUiComponent, CustomComponentData> ParseCustomUi(string value)
         {
             if(HasHex(value)) value = _hexToStr(value);
 
             using var jsonDoc = JsonDocument.Parse(value);
 
             return jsonDoc.RootElement.GetProperty("UiData").EnumerateObject().ToDictionary(
-                p => (CustomUiElement) Enum.Parse(typeof(CustomUiElement), p.Name),
-                p => new UiElementInfo(
+                p => (CustomUiComponent) Enum.Parse(typeof(CustomUiComponent), p.Name),
+                p => new CustomComponentData(
                     Math.Round(p.Value.GetProperty("PositionX").GetDouble(), 4),
                     Math.Round(p.Value.GetProperty("PositionY").GetDouble(), 4),
                     Math.Round(p.Value.GetProperty("Scale").GetDouble(), 4)

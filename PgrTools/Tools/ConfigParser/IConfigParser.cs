@@ -17,7 +17,7 @@ namespace PgrTools.Tools
         /// <summary>
         /// Parses values of the key [CustomUI]
         /// </summary>
-        /// <param name="value">The value of the key [CustomUi] on the pgr config.</param>
-        public IDictionary<CustomUiElement, UiElementInfo> ParseCustomUi(string value);
+        /// <param name="value">The value of the key [CustomUI] on the pgr config.</param>
+        public IDictionary<CustomUiComponent, CustomComponentData> ParseCustomUi(string value);
     }
 }
