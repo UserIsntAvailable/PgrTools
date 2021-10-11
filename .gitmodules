@@ -1,0 +1,3 @@
+[submodule "StaticInjector"]
+	path = StaticInjector
+	url = https://github.com/UserIsntAvailable/StaticInjector
