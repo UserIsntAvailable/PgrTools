@@ -4,6 +4,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PgrTools", "PgrTools\PgrToo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PgrTools.Unit.Tests", "PgrTools.Unit.Tests\PgrTools.Unit.Tests.csproj", "{B17A70B3-598C-43EA-B230-8165C5DBB769}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticInjector", "StaticInjector\StaticInjector\StaticInjector.csproj", "{87ECA500-A7AB-4B85-9AFA-3395115905D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{B17A70B3-598C-43EA-B230-8165C5DBB769}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B17A70B3-598C-43EA-B230-8165C5DBB769}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B17A70B3-598C-43EA-B230-8165C5DBB769}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87ECA500-A7AB-4B85-9AFA-3395115905D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87ECA500-A7AB-4B85-9AFA-3395115905D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87ECA500-A7AB-4B85-9AFA-3395115905D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87ECA500-A7AB-4B85-9AFA-3395115905D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
