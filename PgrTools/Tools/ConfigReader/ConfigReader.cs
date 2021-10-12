@@ -10,12 +10,12 @@ namespace PgrTools.Tools
     {
         private readonly Delegates.HexToString _hexToStr;
 
-        public ConfigReader()
+        internal ConfigReader()
             : this(StringUtils.UrlHexToStr)
         {
         }
 
-        internal ConfigReader(Delegates.HexToString hexToStr)
+        public ConfigReader(Delegates.HexToString hexToStr)
         {
             _hexToStr = hexToStr;
         }

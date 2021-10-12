@@ -1,6 +1,6 @@
-namespace PgrTools.Internals
+namespace PgrTools
 {
-    internal static class Delegates
+    public static class Delegates
     {
         public delegate string HexToString(string hexString);
     }
