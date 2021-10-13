@@ -10,13 +10,13 @@ Tools for Punishing: Gray Raven.
 * **CustomUI**
 
 ## Usage
-You can found every tool method on ```PgrTools``` class.
+You can found every tool method on the ```ToolBox``` class.
 
 ```c#
 using System.Collections.Generic;
 using PgrTools;
 
-IDictionnary<string, string> dict = PgrTools.ReadXmlConfig("Pgr-Config-File-Path.xml"); 
+IDictionnary<string, string> dict = ToolBox.ReadXmlConfig("Pgr-Config-File-Path.xml"); 
 ```
 
 You could also instantiate the classes tools if you would want to modify their default dependencies. You can found every class tool on the ```PgrTools.Tools``` namespace.
